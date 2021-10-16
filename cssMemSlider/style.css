@@ -1,0 +1,179 @@
+body {
+    width: 100%;
+    padding: 0;
+    margin:  0 auto;
+
+    font-size: 1.5em;
+    line-height: 1.5em;
+    letter-spacing: 0.5em;
+
+    color:white;
+    background-color: rgb(29, 27, 27);
+}
+
+.slider {
+    width: 90%;
+    height: 75vh;
+
+    margin: 0;
+    padding: 2% 5%;
+    border: 1px;
+    border-color: rgb(29, 27, 27);
+    border-radius: 1.5em;
+}
+
+.image {
+    grid-area: image;
+
+    overflow: hidden;
+    width: 100%;
+    height: 75vh;
+
+    padding: 0;
+    margin: 0;
+
+    border: 0.5em;
+    border-color: rgb(29, 27, 27);
+    border-radius: 1.5em;
+}
+
+.image-container {
+    width: 100%;
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+img {
+    flex-shrink: 0;
+    width: 100%;
+    height: 75vh;
+}
+
+.description {
+    grid-area: description;
+
+    width: 100%;
+    height: 20vh;
+    overflow: hidden;
+    color: ivory;
+
+    padding: 0;
+    margin: 0;
+}
+
+.description-container {
+    width: 100%;
+    display: flex;
+    transition: transform 1s ease-in-out;
+}
+
+.text {
+    flex-shrink: 0;
+    width: 100%;
+}
+
+.checkmark {
+    width: 1em;
+    height: 1em;
+
+    border: 0.1em solid  cornflowerblue;
+    background-color: cornflowerblue;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.checkmark:hover {
+    width: 1em;
+    height: 1em;
+
+    border: 0.1em solid  ivory;
+    background-color: ivory;
+}
+
+input.checkmark {
+    position: relative;
+    width: 4em;
+    height: 4em;
+    opacity: 0;
+    align-items: center;
+    
+    padding: 0;
+    margin: 0;
+}
+
+.checkmark1 {
+    grid-area: checkmark1;
+}
+
+.checkmark2 {
+    grid-area: checkmark2;
+}
+
+.checkmark3 {
+    grid-area: checkmark3;
+}
+
+.checkmark4 {
+    grid-area: checkmark4;
+}
+
+.slider {
+    display: grid;
+    grid-row-gap: 2em;
+    grid-column-gap: 0em;
+    grid-template-areas:
+    "image image image image image"
+    "description checkmark1 checkmark2 checkmark3 checkmark4";
+    grid-template-columns: 88% 3% 3% 3% 3%;
+    justify-content: space-between;
+
+}
+
+input:checked + span:hover {
+    background-color: black;
+    border: 0.1em solid  ivory;
+}
+
+input:checked + span {
+    background-color: black;
+}
+
+#slide1:checked ~ .image > .image-container, #slide1:checked ~ .description > .description-container {
+    transform: translateX(0%);
+}
+
+#slide2:checked ~ .image > .image-container, #slide2:checked ~ .description > .description-container {
+    transform: translateX(-100%);
+}
+
+#slide3:checked ~ .image > .image-container, #slide3:checked ~ .description > .description-container {
+    transform: translateX(-200%);
+}
+
+#slide4:checked ~ .image > .image-container, #slide4:checked ~ .description > .description-container {
+    transform: translateX(-300%);
+}
+
+@media (max-width: 1250px){
+    .epmpy1 {
+        grid-area: epmpy1;
+    }
+
+    .epmpy2 {
+        grid-area: epmpy2;
+    }
+
+    .slider {
+        display: grid;
+        grid-row-gap: 2em;
+        grid-column-gap: 0em;
+
+        grid-template-areas:
+        "image image image image image image"
+        "epmpy1 checkmark1 checkmark2 checkmark3 checkmark4 epmpy2"
+        "description description description description description description";
+        grid-template-columns: 25% 5% 5% 5% 5% 25%;
+    
+    }
+}
